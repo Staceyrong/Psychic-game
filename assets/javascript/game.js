@@ -2,7 +2,7 @@
 var computerChoices = ["a", "b", "c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var wins = 0;
 var losses = 0;
-var maxChance = 5;
+var maxChance = 9;
 var guessList = [];
 var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
@@ -14,7 +14,7 @@ document.onkeyup = function(event) {
     guessList.push(userGuess);
     if (userGuess === computerGuess) {
         wins++;
-        maxChance = 5;
+        maxChance = 9;
         guessList=[];
         computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
     } 
@@ -22,7 +22,7 @@ document.onkeyup = function(event) {
         maxChance--;
         if (maxChance === 0){
             computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-            maxChance = 5;
+            maxChance = 9;
             guessList=[];
             losses ++;
         }
@@ -32,8 +32,7 @@ document.onkeyup = function(event) {
         "<p>wins: " + wins + "</p>" +
         "<p>losses: " + losses + "</p>" +
         "<p>Guesses Left: " + maxChance + "</p>" +
-        "<p>You guess: " +guessList + "</p>" +
-        "<p>Computer guess: " + computerGuess + "</P>";
+        "<p>You guess: " +guessList + "</p>";
     // Set the inner HTML contents of the #game div to our html string
     document.querySelector("#game").innerHTML = html;
 }
